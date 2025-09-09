@@ -2,6 +2,8 @@ import { PENDING_REQUEST, FULFILLED_REQUEST, REJECTED_REQUEST } from "./actionTy
 import axios from "axios"
 
 
+
+
 function loading_request() {
     return {
         type: PENDING_REQUEST
@@ -35,6 +37,7 @@ export function fetchData(d) {
 
     return async (dispatch) => {
         dispatch(loading_request())
+
 
         try {
             let response = axios(`http://www.omdbapi.com/?s=${d}&apikey=bf0bf0ef`)

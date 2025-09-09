@@ -12,6 +12,7 @@ export default function Search() {
     let status = y?.data.Response;
     let Error = y?.data.Error;
 
+    console.log(y);
 
 
 
@@ -28,14 +29,18 @@ export default function Search() {
     return (
         <div>
             <h1>Search Movie</h1>
-            <div>
+            <form onSubmit={(e) => {
+                e.preventDefault()
+                setFlag(true)
+
+            }}>
                 <input
                     type="text"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                 />
-                <button onClick={() => setFlag(true)}>Search</button>
-            </div>
+                <button type='submit' >Search</button>
+            </form>
             <div>
 
                 {status == "True" && result ? (
@@ -49,11 +54,11 @@ export default function Search() {
                             })}
                         </ul>
                     </>
-                ) : (
+                ) : status=="False" ? (
                     <>
-                        <p>{Error}</p>
+                        <p>Invalid movie name. Please try again.</p>
                     </>
-                )}
+                ) : ""}
 
 
 
