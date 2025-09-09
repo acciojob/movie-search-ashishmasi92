@@ -56,7 +56,8 @@ export default function Search() {
                     </>
                 ) : status=="False" ? (
                     <>
-                        <p>Invalid movie name. Please try again.</p>
+                      <p className="error">{error} {" "}Invalid movie name. Please try again.</p> 
+                        <p></p>
                     </>
                 ) : ""}
 
